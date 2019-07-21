@@ -1,0 +1,56 @@
+const myself = {
+  name : "Omer Hindy",
+  age : 24,
+  address : {city : "Hadera",
+             country : "Israel"
+            },
+  family : [{name : "Ofir" , age : 18}, {name : "Reut", age : 20}],
+  printMyName() {
+    console.log(this.name)
+  },
+  getAddress() {
+    return this.address
+  },
+  howManyRelatives() {
+    return this.family.length
+  },
+  addFamilyRelative(obj) {
+    this.family.push(obj)
+  },
+  setName(name) {
+    this.name = name
+  }
+}
+
+
+
+function printObject(obj)
+{ 
+	for (let n in obj)
+  {
+    if(typeof(obj[n]) === "object")
+      {
+        console.log(n)
+        printObject(obj[n])
+      }
+    else if(typeof(obj[n]) !== "function"){
+      console.log(`${n} : ${obj[n]}`)
+    }
+  }
+}
+
+console.log("printing name")
+myself.printMyName()
+console.log("set name to abcd")
+myself.setName("abcd")
+let address = myself.getAddress()
+console.log("my address is : ")
+printObject(address)
+let relatives = myself.howManyRelatives()
+console.log(`num of relatives at start : ${relatives}`)
+let eyal = {name : "eyal", age : 52}
+myself.addFamilyRelative(eyal)
+relatives = myself.howManyRelatives()
+console.log(`num of relatives after adding eyal : ${relatives}`)
+console.log("Myself Details !!!")
+printObject(myself)
