@@ -76,9 +76,21 @@ function createMobilePhone(model,size,price,number)
 
 function MobilePhone(model,size,price,number)
 {
-  this.model = model
+  let _model = ""
+  this.getModel = () => {return _model}
+  this.setModel = (newModel) => {if(newModel.length > 3)
+    															{
+      															_model = newModel
+    															}
+                                }
   this.size = size
-  this.price = price
+  let _price = 0
+  this.getPrice = () => {return _price}
+  this.setPrice = (newPrice) => {if(newPrice > 0 && newPrice > _price)
+    															{
+      															_price = newPrice
+    															}
+                                }
   this.number = number
   this.setNumber = function (number) {
     this.number = number
@@ -86,6 +98,9 @@ function MobilePhone(model,size,price,number)
   this.getNumber = function () {
     return this.number
   }
+  this.setModel(model)
+  this.setPrice(price)
+
 }
 
 var p1 = createMobilePhone("samsung","5 inch" , "1000", "05048444778")
