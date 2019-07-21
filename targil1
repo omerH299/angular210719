@@ -54,3 +54,43 @@ relatives = myself.howManyRelatives()
 console.log(`num of relatives after adding eyal : ${relatives}`)
 console.log("Myself Details !!!")
 printObject(myself)
+
+////////////////////////////////////////////////////////////////////////
+// constructors 
+
+function createMobilePhone(model,size,price,number)
+{
+  var phone = {}
+  phone.model = model
+  phone.size = size
+  phone.price = price
+  phone.number = number
+  phone.getNumber = function () {
+    return phone.numer
+  }
+  phone.setNumber = function (number) {
+    phone.number = number
+  }
+  return phone
+}
+
+function MobilePhone(model,size,price,number)
+{
+  this.model = model
+  this.size = size
+  this.price = price
+  this.number = number
+  this.setNumber = function (number) {
+    this.number = number
+  }
+  this.getNumber = function () {
+    return this.number
+  }
+}
+
+var p1 = createMobilePhone("samsung","5 inch" , "1000", "05048444778")
+var p2 = new MobilePhone("iphone","7 inch" , "7000", "0523444778")
+
+console.log(p1)
+console.log(p2)
+
